@@ -4,14 +4,6 @@ const places = require('../models/places.js')
 router.get('/', (req, res)=> {
     res.render('places/index', {places})
 })
-
-router.get('/new', (req, res) => {
-    res.render('places/new')
-  })  
-
-  router.get('/', (req, res) => {
-    res.render('places/show')
-  })
   
 router.get('/', (req, res) => {
     let id = Number(req.params.id)
@@ -22,7 +14,7 @@ router.get('/', (req, res) => {
       res.render('error404')
     }
     else {
-      res.render('places/show', {places: places[id]})
+      res.render('places/show', {places: places[id], id})
     }
   })
   
@@ -43,7 +35,28 @@ router.get('/', (req, res) => {
     res.redirect('POST /places')
   })
   
+  router.get('/new', (req, res) => {
+    res.render('places/new')
+  })  
 
+  router.get('/', (req, res) => {
+    res.render('places/show')
+  })
 
+  router.delete('/:id', (req, res) => {
+    let id = Number(req.params.id)
+    if (isNaN(id)) {
+      res.render('error404')
+    }
+    else if (!places[id]) {
+      res.render('error404')
+    }
+    else {
+      places.splice(id, 1)
+      res.redirect('/places')
+    }
+  })
+  
+  
 
 module.exports = router
