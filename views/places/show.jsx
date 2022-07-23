@@ -20,13 +20,3 @@ function show(data) {
 }
 
 module.exports = show
-
-    < a href = {`/places/${data.id}/edit`} className = "btn btn-warning" >
-        Edit
-</a >
-    <form method="POST" action="">
-        <button type="submit" className="btn btn-danger">
-            Delete
-        </button>
-    </form>
-
