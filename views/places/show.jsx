@@ -11,6 +11,13 @@ function show(data) {
                     <p>Currently Unrated</p>
                 </div>
                 <div>
+                    <h2>Description</h2>
+                    <div>
+                        <p>{data.place.city}, {data.place.state}</p>
+                        <p>{data.place.cuisines}</p>
+                    </div>
+                </div>
+                <div>
                     <h2>Comments</h2>
                     <p>No comments yet!</p>
                 </div>
