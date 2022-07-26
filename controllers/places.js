@@ -66,9 +66,10 @@ router.put('/:id', (req, res) => {
   
         // Save the new data into places[id]
         places[id] = req.body
-        res.redirect(`/places/${id}`)
+        res.redirect(`places/${id}`)
     }
   })
+  
   
   
 router.delete('/:id', (req, res) => {
